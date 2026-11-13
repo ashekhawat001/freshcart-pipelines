@@ -28,7 +28,7 @@ if 'test' not in globals():
 # It splits the data 80/20 and adds a 'split' column labelling each row train or test
 @transformer
 def transform(df, *args, **kwargs):
-    train_df, test_df = train_test_split(df, test_size=0.3, random_state=42)
+    train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 
     train_df = train_df.copy()
     test_df = test_df.copy()
