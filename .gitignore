@@ -1,5 +1,10 @@
 # Byte-compiled / optimized / DLL files
+.env
+*.pkl
+*.csv
+mage.log
 __pycache__/
+
 *.py[codz]
 *$py.class
 
