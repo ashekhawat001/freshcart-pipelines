@@ -1,0 +1,36 @@
+blocks:
+- name: load_iris
+  uuid: load_iris
+  type: data_loader
+  language: python
+  upstream_blocks: []
+  downstream_blocks: [prepare_data]
+- name: prepare_data
+  uuid: prepare_data
+  type: transformer
+  language: python
+  upstream_blocks: [load_iris]
+  downstream_blocks: [train_model]
+- name: train_model
+  uuid: train_model
+  type: transformer
+  language: python
+  upstream_blocks: [prepare_data]
+  downstream_blocks: [save_results, evaluate_model]
+- name: save_results
+  uuid: save_results
+  type: data_exporter
+  language: python
+  upstream_blocks: [train_model]
+  downstream_blocks: []
+- name: evaluate_model
+  uuid: evaluate_model
+  type: transformer
+  language: python
+  upstream_blocks: [train_model]
+  downstream_blocks: []
+name: iris_classifier
+uuid: iris_classifier
+type: python
+variables:
+  max_depth: 3
